@@ -122,7 +122,7 @@ Remember — a datastream is your basic building block!
 	ds.Name = "TestDS" + randomNumber;
 	ds.Field.Time = time;
 	ds.DataSource = datasource;
-	var datastream = _falkonry.CreateDatastream(ds);
+	var datastream = falkonry.CreateDatastream(ds);
 ```
 
 ```java
@@ -281,7 +281,7 @@ Structuring data as key-value pairs — as is done in narrow-form datasets — f
 	ds.Name = "TestDS" + randomNumber;
 	ds.Field.Time = time;
 	ds.DataSource = datasource;
-	var datastream = _falkonry.CreateDatastream(ds);
+	var datastream = falkonry.CreateDatastream(ds);
 ```
 
 ```java
@@ -444,7 +444,7 @@ var randomNumber = System.Convert.ToString(rnd.Next(1, 10000));
 ds.Name = "TestDS" + randomNumber;
 ds.Field.Time = time;
 ds.DataSource = datasource;
-var datastream = _falkonry.CreateDatastream(ds);
+var datastream = falkonry.CreateDatastream(ds);
 ```
 
 ```java
@@ -625,7 +625,7 @@ var randomNumber = System.Convert.ToString(rnd.Next(1, 10000));
 ds.Name = "TestDS" + randomNumber;
 ds.Field.Time = time;
 ds.DataSource = datasource;
-var datastream = _falkonry.CreateDatastream(ds);
+var datastream = falkonry.CreateDatastream(ds);
 ```
 
 ```java
@@ -879,7 +879,7 @@ If you have many value variables, it is difficult to summarize wide-form dataset
 	ds.Name = "TestDS" + randomNumber;
 	ds.Field.Time = time;
 	ds.DataSource = datasource;
-	var datastream = _falkonry.CreateDatastream(ds);
+	var datastream = falkonry.CreateDatastream(ds);
 ```
 
 ```java
@@ -1091,7 +1091,7 @@ ds.Name = "TestDS" + randomNumber;
 ds.TimePrecision = "micro"; # this is use to store your data in different date time format. If input data precision is in micorseconds then set "micro" else "millis". If not sent then it will be "millis"
 ds.Field.Time = time;
 ds.DataSource = datasource;
-var datastream = _falkonry.CreateDatastream(ds);
+var datastream = falkonry.CreateDatastream(ds);
 
 ```
 
@@ -1213,7 +1213,7 @@ using FalkonryClient.Helper.Models;
 
 string token="api-token";   
 Falkonry falkonry = new Falkonry("http://example.falkonry.ai", token);
-List<Datastream> datastreams = _falkonry.GetDatastreams();
+List<Datastream> datastreams = falkonry.GetDatastreams();
 ```
 
 ```java
@@ -1259,7 +1259,7 @@ using FalkonryClient.Helper.Models;
 
 string token="api-token";   
 Falkonry falkonry = new Falkonry("http://example.falkonry.ai", token);
-Datastream datastream = _falkonry.GetDatastream('datastreamId')
+Datastream datastream = falkonry.GetDatastream('datastreamId')
 
 ```
 
@@ -1375,7 +1375,7 @@ options.Add("timeFormat", "YYYY-MM-DD HH:mm:ss");
 options.Add("signalIdentifier", "signal");
 options.Add("valueIdentifier", "value");
 options.Add("batchIdentifier", "batch");
-var inputstatus = _falkonry.AddInput(datastream.Id, data, options);
+var inputstatus = falkonry.AddInput(datastream.Id, data, options);
 ```
 
 ```java
@@ -1473,7 +1473,7 @@ options.Add("valueIdentifier", "value");
 options.Add("entityIdentifier", "Unit");
 options.Add("batchIdentifier", "Batch");
             
-var inputstatus = _falkonry.AddInput(datastream.Id, data, options);
+var inputstatus = falkonry.AddInput(datastream.Id, data, options);
                
 ```
 
@@ -1557,7 +1557,7 @@ options.Add("timeZone", "GMT");
 options.Add("streaming", "false");
 options.Add("hasMoreData", "false");
 options.Add("batchIdentifier", "Batch");
-var inputstatus = _falkonry.AddInput(datastream.Id, data, options);
+var inputstatus = falkonry.AddInput(datastream.Id, data, options);
                
 ```
 
@@ -1646,7 +1646,7 @@ options.Add("timeZone", "GMT");
 options.Add("timeFormat", "YYYY-MM-DD HH:mm:ss");
 options.Add("entityIdentifier", "car");
 options.Add("batchIdentifier", "batch");
-var inputstatus = _falkonry.AddInput(datastream.Id, data, options);
+var inputstatus = falkonry.AddInput(datastream.Id, data, options);
 ```
 
 ```java
@@ -1751,7 +1751,7 @@ var options = new SortedDictionary<string, string>();
 options.Add("streaming", "false");
 options.Add("hasMoreData", "false");
             
-var inputstatus = _falkonry.AddInput(datastream.Id, data, options);
+var inputstatus = falkonry.AddInput(datastream.Id, data, options);
 ```
 
 ```java
@@ -1834,7 +1834,7 @@ options.Add("timeFormat", "YYYY-MM-DD HH:mm:ss");
 options.Add("entityIdentifier", "car");
 options.Add("signalIdentifier", "signal");
 options.Add("valueIdentifier", "value");
-var inputstatus = _falkonry.AddInput(datastream.Id, data, options);
+var inputstatus = falkonry.AddInput(datastream.Id, data, options);
 ```
 
 ```java
@@ -1921,7 +1921,7 @@ var data = "{\"time\" :\"2016-03-01 01:01:01\", \"current\" : 12.4, \"vibration\
 var options = new SortedDictionary<string, string>();
 options.Add("streaming", "false");
 options.Add("hasMoreData", "false");
-var inputstatus = _falkonry.AddInput(datastream.Id, data, options);
+var inputstatus = falkonry.AddInput(datastream.Id, data, options);
 ```
 
 ```java
@@ -2028,7 +2028,7 @@ options.Add("timeZone", "GMT");
 options.Add("streaming", "false");
 options.Add("hasMoreData", "false");
 options.Add("entityIdentifier", "Unit");
-var inputstatus = _falkonry.AddInput(datastream.Id, data, options);
+var inputstatus = falkonry.AddInput(datastream.Id, data, options);
             
 ```
 
@@ -4090,6 +4090,213 @@ Fetching live assessments :
 {"time":1500453246798,"entity":"UNIT-1","value":"unlabeled5"}
 ```
 Assessments in live monitoring mode can be streamed out to suggest real time machine/ asset condition/ state.
+
+# Backfill Processing
+After a model revision has been trained, if you want to generate output for historical data which was not ingested in datastream then using backfill processing you can achieve the same.
+You need to send input data to the backfill process and listen to the output. 
+Once all the output data is received you should stop the backfill process.
+
+Any model revision can be selected to be the basis of backfill processing. Falkonry will assign conditions to multi-variate patterns based on the signals that were used to create the model revision.
+
+## Start new backfill process
+
+> To start new backfill process, use this code:
+
+```csharp
+using FalkonryClient;
+using FalkonryClient.Helper.Models;
+
+string token="Add your token here";   
+Falkonry falkonry = new Falkonry("http://example.falkonry.ai", token);
+string datastream_id = "Your datastream id";
+string assessment_id = "Your assessment id";
+OutputStateRequest outputStateRequest = new OutputStateRequest();
+outputStateRequest.Datastream = datastream_id;
+List<string> assessmentList = new List<string>();
+assessmentList.Add(assessment_id);
+outputStateRequest.Assessment = assessmentList;
+OutputStateResponse outputStateResponse = falkonry.StartBackfillProcess(outputStateRequest);
+```
+
+```java
+
+```
+
+```python
+
+```
+
+```shell
+
+```
+
+Backfill process is associated with the entire datastream. At this point all the requested assessments sent in the request starts processing of input data.
+
+Every assessment has an "active" model associated with it.
+
+<aside class="notice">
+Once backfill process is started you should stream the input data to the process, then only output will be generated. It is advised that you should start listening to the output first and then send the input data.
+</aside>
+
+
+## Add input data to backfill process
+
+> To add new input data to backfill process, use this code:
+
+```csharp
+using FalkonryClient;
+using FalkonryClient.Helper.Models;
+
+string token="Add your token here";   
+Falkonry falkonry = new Falkonry("http://example.falkonry.ai", token);
+string datastream_id = "Your datastream id";
+string assessment_id = "Your assessment id";
+string outputStateResponse_id = "OutputStateId of the outputState which you received after starting backfill(outputStateResponse.OutputStateId)";
+Map<String, String> options = new HashMap<String, String>();
+var data = "time,unit,signal1,signal2,batch \n" + "1522774573095, UNIT-1, 12.4, 45.30, 12 \n 1522774578122, UNIT-1, 12.4, 45.30, 12";
+var inputstatus = falkonry.AddInputDataToBackfillProcess(outputStateResponse_id, datastream_id, data, options);
+
+```
+
+```java
+
+```
+
+```python
+
+```
+
+```shell
+
+```
+
+<aside class="notice">
+If input data format is same as datastream data format then data can be added directly without overriding any fields in options.
+</aside>
+
+## Add input data from stream to backfill process
+
+> To add input data to new backfill process from stream, use this code:
+
+```csharp
+using FalkonryClient;
+using FalkonryClient.Helper.Models;
+
+string token="Add your token here";   
+Falkonry falkonry = new Falkonry("http://example.falkonry.ai", token);
+string datastream_id = "Your datastream id";
+string assessment_id = "Your assessment id";
+string outputStateResponse_id = "OutputStateId of the outputState which you received after starting backfill(outputStateResponse.OutputStateId)";
+string folder_path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+Map<String, String> options = new HashMap<String, String>();
+string path = folder_path + "/AddData.csv";
+//Alternatively, you can directly specify the folder path in the "folder_path" variable
+
+byte[] bytes = System.IO.File.ReadAllBytes(path);
+
+InputStatus inputstatus = falkonry.AddInputDataToBackfillProcessByStream(outputStateResponse_id,datastream_id, bytes, options);
+```
+
+```java
+
+```
+
+```python
+
+```
+
+```shell
+
+```
+
+<aside class="notice">
+If input data format is same as datastream data format then data can be added directly without overriding any fields in options.
+</aside>
+
+## Get backfill process output
+
+> To retrieve backfill process output, use this code:
+
+```csharp
+using FalkonryClient;
+using FalkonryClient.Helper.Models;
+
+string token="Add your token here";   
+Falkonry falkonry = new Falkonry("http://example.falkonry.ai", token);
+
+string assessment_id = "Your assessment id";
+string outputStateResponse_id = "OutputStateId of the outputState which you received after starting backfill(outputStateResponse.OutputStateId)";
+
+
+//On successfull backfill process output EventSource_Message will be triggered
+private void EventSource_Message(object sender, EventSource.ServerSentEventArgs e)
+{
+    try { var falkonryEvent = JsonConvert.DeserializeObject<FalkonryEvent>(e.Data); }
+    catch(System.Exception exception) 
+    { //log error in case of error parsing the output event }
+        
+}
+
+//On any error while getting backfill process output, EventSource_Error will be triggered
+private void EventSource_Error(object sender, EventSource.ServerSentErrorEventArgs e)
+{ // Error handling }
+
+EventSource eventSource = falkonry.GetOutputDataFromBackfillProcess(outputStateResponse_id,assessment_id);
+eventSource.Message += EventSource_Message;
+eventSource.Error += EventSource_Error;
+
+// NOTE: To stop listening to output
+eventSource.Dispose();
+```
+
+```java
+
+```
+
+```python
+
+```
+
+```shell
+
+```
+
+Output for each assessment is generated on separately. You can listen to each assessment's output separately using this code.
+
+
+<aside class="notice">
+You should start listening on to output first and then send input data.
+</aside>
+
+## Stop backfill process
+
+> To stop the backfill process, use this code:
+
+```csharp
+using FalkonryClient;
+using FalkonryClient.Helper.Models;
+
+string token="Add your token here";   
+Falkonry falkonry = new Falkonry("http://example.falkonry.ai", token);
+string outputStateResponse_id = "OutputStateId of the outputState which you received after starting backfill(outputStateResponse.OutputStateId)";
+falkonry.StopBackfillProcess(outputStateResponse_id);
+```
+
+```java
+
+```
+
+```python
+
+```
+
+```shell
+
+```
+
+Once all the input data is sent and output data is received then you should stop the backfill process.
+
+
 
 
 
