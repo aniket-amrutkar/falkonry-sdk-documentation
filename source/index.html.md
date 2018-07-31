@@ -3767,7 +3767,7 @@ falkonry  = Falkonry('https://example.falkonry.ai', 'auth-token')
 assessmentId = 'id of the assessment'
 
 # Starts live monitoring of assessment. For live monitoring assessment must have an active model. 
-response = falkonry.on_assessment(assessmentId)
+assessment = falkonry.on_assessment(assessmentId)
 ```
 
 ```shell
@@ -3814,7 +3814,7 @@ falkonry  = Falkonry('https://example.falkonry.ai', 'auth-token')
 assessmentId = 'id of the assessment'
 
 # Stops live monitoring of assessment.
-response = falkonry.off_assessment(assessmentId)
+assessment = falkonry.off_assessment(assessmentId)
 ```
 
 ```shell
